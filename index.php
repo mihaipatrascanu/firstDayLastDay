@@ -12,11 +12,17 @@ if(isset($_POST['prev']))
 {
     $workingDate = $_POST['prevMonth'];  
 }
+
 if(isset($_POST['updateDate'])) 
 {
     $workingDate = $_POST['newDate'];  
 }
 
+$theDayOfWeek = date("w",strtotime($workingDate));
+$weekNumber = date("W",strtotime($workingDate));
+
+$firstDayOfTheWeek = date('l-Y-m-d', strtotime('this week',strtotime($workingDate)));
+$lastDayOfTheWeek = date('l-Y-m-d', strtotime("+6 day",strtotime('this week',strtotime($workingDate))));
 
 $prevMonth = date('Y-m-d', strtotime('-1 month',strtotime($workingDate)));
 $nextMonth = date('Y-m-d', strtotime('+1 month',strtotime($workingDate)));
@@ -26,6 +32,9 @@ $nextYear = date('Y', strtotime($nextMonth));
 
 $firstDay = date('Y-m-01',strtotime($workingDate));
 $lastDay = date('Y-m-t',strtotime($workingDate));
+
+$prevWeek = date('Y-m-d',strtotime("-1 week", strtotime($workingDate)));
+$nextWeek = date('Y-m-d',strtotime("+1 week", strtotime($workingDate)));
 
 
 echo '<h3>
@@ -49,6 +58,20 @@ echo '<h3>
         </form>
     </h3>';
 
+   
+
+    
+    
     echo 'First Day of The Month: '. $firstDay.'<br />';
-    echo 'Last Day of The Month: '. $lastDay.'<br />';
+    echo 'Last Day of The Month: '. $lastDay.'<br /> <br />';
+
+    echo 'Back One Week From Now: '. $prevWeek.'<br />';
+    echo 'One Week From Now: '. $nextWeek.'<br /> <br />';
+
+    echo 'Week Number: '. $weekNumber.'<br />';
+    echo 'Day Number In The Week: '. $theDayOfWeek.'<br />';
+    echo 'First Day Of The Week: '. $firstDayOfTheWeek.'<br />';
+    echo 'Last Day Of The Week: '. $lastDayOfTheWeek.'<br /><br />';
+
+    
 ?>
