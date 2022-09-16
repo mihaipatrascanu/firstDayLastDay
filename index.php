@@ -5,16 +5,16 @@ $workingDate = date('Y-m-d', $date);
 
 if(isset($_POST['next']))
 {
-    $workingDate = $_POST['nextmonth'];
+    $workingDate = $_POST['nextMonth'];
 }
 
 if(isset($_POST['prev'])) 
 {
-    $workingDate = $_POST['prevmonth'];  
+    $workingDate = $_POST['prevMonth'];  
 }
-if(isset($_POST['updatedate'])) 
+if(isset($_POST['updateDate'])) 
 {
-    $workingDate = $_POST['newdate'];  
+    $workingDate = $_POST['newDate'];  
 }
 
 
@@ -31,18 +31,18 @@ $lastDay = date('Y-m-t',strtotime($workingDate));
 echo '<h3>
         <form method="post"  class="" action="">
             <div>
-                <input type="date" name="newdate" value="'.$workingDate.'">
-                <input type="submit" name="updatedate" value="Submit">
+                <input type="date" name="newDate" value="'.$workingDate.'">
+                <input type="submit" name="updateDate" value="Submit">
             </div>
-
             <div class="">
-                <input type="hidden" name="prevmonth" value="' . $prevMonth . '">
-                <input type="hidden" name="nextmonth" value="' . $nextMonth . '">
+                <input type="hidden" name="prevMonth" value="' . $prevMonth . '">
+                <input type="hidden" name="nextMonth" value="' . $nextMonth . '">
 
-                <input type="hidden" name="prevyear" value="' . $prevYear . '">
-                <input type="hidden" name="nextyear" value="' . $nextYear . '">
+                <input type="hidden" name="prevYear" value="' . $prevYear . '">
+                <input type="hidden" name="nextYear" value="' . $nextYear . '">
 
                 <input type="submit" name="prev" value="Prev">
+                
                 <strong>'.date('d/m/Y',strtotime($firstDay)).' — '.date('d/m/Y',strtotime($lastDay)).'</strong>
                 <input type="submit" name="next" value="Next">
             </div>
