@@ -1,37 +1,37 @@
 <?php 
 
 $date = time () ;
-$working_date = date('Y-m-d', $date);
+$workingDate = date('Y-m-d', $date);
 
 if(isset($_POST['next']))
 {
-    $working_date = $_POST['nextmonth'];
+    $workingDate = $_POST['nextmonth'];
 }
 
 if(isset($_POST['prev'])) 
 {
-    $working_date = $_POST['prevmonth'];  
+    $workingDate = $_POST['prevmonth'];  
 }
 if(isset($_POST['updatedate'])) 
 {
-    $working_date = $_POST['newdate'];  
+    $workingDate = $_POST['newdate'];  
 }
 
 
-$prevMonth = date('Y-m-d', strtotime('-1 month',strtotime($working_date)));
-$nextMonth = date('Y-m-d', strtotime('+1 month',strtotime($working_date)));
+$prevMonth = date('Y-m-d', strtotime('-1 month',strtotime($workingDate)));
+$nextMonth = date('Y-m-d', strtotime('+1 month',strtotime($workingDate)));
 
 $prevYear = date('Y', strtotime($prevMonth));
 $nextYear = date('Y', strtotime($nextMonth));
 
-$firstDay = date('Y-m-01',strtotime($working_date));
-$lastDay = date('Y-m-t',strtotime($working_date));
+$firstDay = date('Y-m-01',strtotime($workingDate));
+$lastDay = date('Y-m-t',strtotime($workingDate));
 
 
 echo '<h3>
         <form method="post"  class="" action="">
             <div>
-                <input type="date" name="newdate" value="'.$working_date.'">
+                <input type="date" name="newdate" value="'.$workingDate.'">
                 <input type="submit" name="updatedate" value="Submit">
             </div>
 
